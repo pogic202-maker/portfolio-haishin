@@ -109,31 +109,53 @@ nav {
   text-align: center;
   padding: 6rem 1.5rem 4rem;
   overflow: hidden;
+  /* NanoBanana Pro 生成画像を背景に */
+  background-image: url('image/nanobanana-hero.png');
+  background-size: cover;
+  background-position: right center;
+  background-repeat: no-repeat;
 }
 
-/* Grid background */
+/* 画像の上に濃いグラデーションをかけてテキストを読みやすく */
+#hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    105deg,
+    rgba(13, 17, 23, 0.92) 0%,
+    rgba(13, 17, 23, 0.78) 38%,
+    rgba(13, 17, 23, 0.45) 65%,
+    rgba(13, 17, 23, 0.25) 100%
+  );
+  z-index: 0;
+}
+
+/* サイバーグリッド（画像の上にわずかに重ねる） */
 #hero::after {
   content: '';
   position: absolute;
   inset: 0;
   background-image:
-    linear-gradient(rgba(6,182,212,0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(6,182,212,0.04) 1px, transparent 1px);
+    linear-gradient(rgba(6,182,212,0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(6,182,212,0.05) 1px, transparent 1px);
   background-size: 40px 40px;
   pointer-events: none;
+  z-index: 0;
 }
 
-/* Radial glow center */
+/* Radial glow — 画像があるので控えめに */
 .hero-glow {
   position: absolute;
-  width: 600px;
-  height: 600px;
+  width: 500px;
+  height: 500px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(124,58,237,0.12) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(124,58,237,0.08) 0%, transparent 70%);
   pointer-events: none;
   top: 50%;
-  left: 50%;
+  left: 30%;
   transform: translate(-50%, -50%);
+  z-index: 0;
 }
 
 /* Hero name */
@@ -327,6 +349,54 @@ section {
   gap: 4rem;
   margin-top: 3rem;
   align-items: start;
+}
+
+/* =============================================
+   ABOUT イラスト（NanoBanana Pro 生成）
+   ============================================= */
+.about-illustration {
+  margin-bottom: 1.75rem;
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.96);
+  border: 1px solid rgba(124, 58, 237, 0.2);
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.4),
+    0 0 0 1px rgba(6, 182, 212, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.about-illustration:hover {
+  transform: translateY(-4px);
+  box-shadow:
+    0 16px 40px rgba(0, 0, 0, 0.5),
+    0 0 0 1px rgba(124, 58, 237, 0.3),
+    0 0 24px rgba(124, 58, 237, 0.15);
+}
+
+.about-illustration img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: calc(var(--radius) - 1px);
+}
+
+.about-illustration-caption {
+  padding: 0.6rem 0.9rem;
+  background: rgba(255, 255, 255, 0.96);
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: #6b7280;
+  letter-spacing: 0.05em;
+  border-top: 1px solid rgba(0,0,0,0.06);
+}
+
+.about-illustration-caption::before {
+  content: '🍌';
 }
 
 .about-profile {
