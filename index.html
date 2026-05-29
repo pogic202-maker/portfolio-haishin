@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>川合彰 | AI Dev Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ==================== NAVIGATION ==================== -->
+  <nav>
+    <a href="#hero" class="nav-logo">&gt; ai_portfolio</a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#works">Works</a></li>
+      <li><a href="#stats">Stats</a></li>
+    </ul>
+  </nav>
+
+  <!-- ==================== HERO ==================== -->
+  <section id="hero">
+    <div class="hero-glow"></div>
+
+    <span class="hero-badge">AI-Assisted Development</span>
+
+    <p class="hero-name">川合 彰</p>
+
+    <h1 class="hero-title">
+      AIと共に創る。<br />
+      <span class="gradient-text">Vibe Coding Works</span>
+    </h1>
+
+    <p class="hero-subtitle">
+      Claude Code・ChatGPT などの AI ツールを駆使して生み出した<br />
+      開発成果物のポートフォリオです。
+    </p>
+
+    <div class="hero-cta">
+      <a href="#works" class="btn btn-primary">作品を見る</a>
+      <a href="#about" class="btn btn-outline">About</a>
+    </div>
+
+    <div class="scroll-hint">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M12 5v14M5 12l7 7 7-7"/>
+      </svg>
+      scroll
+    </div>
+  </section>
+
+  <!-- ==================== ABOUT ==================== -->
+  <section id="about">
+    <p class="section-label">// about</p>
+    <h2 class="section-title">川合 彰について</h2>
+
+    <div class="about-grid">
+      <div class="about-text">
+        <div class="about-profile">
+          <span class="about-role">AI Developer &amp; Vibe Coder</span>
+        </div>
+        <p>
+          はじめまして、<strong>川合 彰</strong>です。
+          AI ツールを活用した「バイブコーディング」を実践しています。
+          プログラミングの専門的な知識がなくても、
+          <strong>自然言語で AI に指示するだけ</strong>でゲーム・Webツール・自動化スクリプトを
+          形にできることに面白さを感じ、日々取り組んでいます。
+        </p>
+        <p>
+          従来の開発と最も違うのは<strong>「アイデアから動くものができるまでのスピード」</strong>。
+          思いついたその日に試作し、翌日には完成品が手元にある——
+          そんな開発体験を AI が実現してくれています。
+        </p>
+        <p>
+          このポートフォリオは、AI と対話しながら生み出してきた
+          成果物の記録です。これからも作り続けます。
+        </p>
+      </div>
+
+      <div class="about-tools">
+        <p class="tools-heading">// 主な使用ツール</p>
+        <div class="tools-grid">
+          <span class="tool-tag">⚡ Claude Code</span>
+          <span class="tool-tag">🤖 ChatGPT</span>
+          <span class="tool-tag">🔮 Cursor</span>
+          <span class="tool-tag">🌊 Claude</span>
+          <span class="tool-tag">🎨 v0</span>
+          <span class="tool-tag">🛠 GitHub</span>
+          <span class="tool-tag">🐍 Python</span>
+          <span class="tool-tag">🌐 HTML/CSS</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== WORKS ==================== -->
+  <section id="works">
+    <p class="section-label">// works</p>
+    <h2 class="section-title">制作実績</h2>
+    <p class="section-desc">AI を使って実際に動くプロダクトを作り続けています。</p>
+
+    <div class="filter-bar">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="game">🎮 ゲーム</button>
+      <button class="filter-btn" data-filter="tool">🛠 ツール</button>
+      <button class="filter-btn" data-filter="ui">🎨 UI</button>
+    </div>
+
+    <div class="works-grid" id="works-grid">
+
+      <!-- Card 1: Tetris -->
+      <div class="card" data-category="game">
+        <div class="card-img-wrap">
+          <img src="image/tetris-game.png.jpg" alt="テトリスゲーム" loading="lazy" />
+          <div class="card-overlay"></div>
+        </div>
+        <div class="card-body">
+          <p class="card-category cat-game">🎮 &nbsp;ゲーム開発</p>
+          <h3 class="card-title">テトリスゲーム</h3>
+          <p class="card-desc">
+            Claude と対話しながら構築したブラウザ動作のテトリス。
+            ダーク×ネオンのサイバーパンク配色で完成させた完全プレイアブルな実装。
+          </p>
+          <div class="card-tags">
+            <span class="tag">HTML</span>
+            <span class="tag">CSS</span>
+            <span class="tag">JavaScript</span>
+            <span class="tag">Claude</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 2: Claude Code Skill -->
+      <div class="card" data-category="tool">
+        <div class="card-img-wrap">
+          <img src="image/slidevideo-installation.png.jpg" alt="Claude Code スキル導入" loading="lazy" />
+          <div class="card-overlay"></div>
+        </div>
+        <div class="card-body">
+          <p class="card-category cat-tool">🛠 &nbsp;ツール / AI 環境</p>
+          <h3 class="card-title">Claude Code カスタムスキル導入</h3>
+          <p class="card-desc">
+            スライド動画編集スキル「clbs-slidevideo-edit」を
+            Claude Code へインストール。Python 依存関係・ffmpeg の
+            チェックまで自動化した環境構築の記録。
+          </p>
+          <div class="card-tags">
+            <span class="tag">Claude Code</span>
+            <span class="tag">Python</span>
+            <span class="tag">ffmpeg</span>
+            <span class="tag">Whisper</span>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /.works-grid -->
+  </section>
+
+  <!-- ==================== STATS ==================== -->
+  <section id="stats">
+    <p class="section-label">// stats</p>
+    <h2 class="section-title">実績サマリー</h2>
+
+    <div class="stats-grid">
+      <div class="stat-item">
+        <p class="stat-number">2+</p>
+        <p class="stat-label">作品数</p>
+      </div>
+      <div class="stat-item">
+        <p class="stat-number">5+</p>
+        <p class="stat-label">使用 AI ツール</p>
+      </div>
+      <div class="stat-item">
+        <p class="stat-number">2</p>
+        <p class="stat-label">カテゴリ</p>
+      </div>
+      <div class="stat-item">
+        <p class="stat-number">∞</p>
+        <p class="stat-label">可能性</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer>
+    Built with <span>AI</span> &amp; curiosity &nbsp;·&nbsp; 2025
+  </footer>
+
+  <!-- ==================== SCRIPT ==================== -->
+  <script>
+    // Filter buttons
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const cards = document.querySelectorAll('#works-grid .card');
+
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        const filter = btn.dataset.filter;
+        cards.forEach(card => {
+          const match = filter === 'all' || card.dataset.category === filter;
+          card.style.display = match ? '' : 'none';
+        });
+      });
+    });
+
+    // Smooth reveal on scroll
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.card, .stat-item, .about-text, .about-tools').forEach(el => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(20px)';
+      el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+      observer.observe(el);
+    });
+  </script>
+
+</body>
+</html>
