@@ -2,7 +2,8 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#0d1117" />
   <title>川合彰 | AI Dev Portfolio</title>
 
   <!-- SEO -->
@@ -33,15 +34,32 @@
 </head>
 <body>
 
+  <a href="#works" class="skip-link">Skip to main content</a>
+
   <!-- ==================== NAVIGATION ==================== -->
   <nav>
     <a href="#hero" class="nav-logo">&gt; ai_portfolio</a>
-    <ul class="nav-links">
+
+    <button
+      class="nav-toggle"
+      type="button"
+      aria-expanded="false"
+      aria-controls="nav-menu"
+      aria-label="メニューを開く"
+    >
+      <span class="nav-toggle-bar" aria-hidden="true"></span>
+      <span class="nav-toggle-bar" aria-hidden="true"></span>
+      <span class="nav-toggle-bar" aria-hidden="true"></span>
+    </button>
+
+    <ul id="nav-menu" class="nav-links">
       <li><a href="#about">About</a></li>
       <li><a href="#works">Works</a></li>
       <li><a href="#stats">Stats</a></li>
     </ul>
   </nav>
+
+  <main id="main">
 
   <!-- ==================== HERO ==================== -->
   <section id="hero">
@@ -66,7 +84,7 @@
       <a href="#about" class="btn btn-outline">About</a>
     </div>
 
-    <div class="scroll-hint">
+    <div class="scroll-hint" aria-hidden="true">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <path d="M12 5v14M5 12l7 7 7-7"/>
       </svg>
@@ -141,16 +159,17 @@
       <!-- Card 1: Tetris -->
       <div class="card" data-category="game">
         <div class="card-img-wrap">
-          <img src="image/tetris-game.png.jpg" alt="テトリスゲーム" loading="lazy" decoding="async" />
+          <img src="image/tetris-game.png.jpg" alt="ブラウザで動作するテトリスゲームのプレイ画面。サイバーパンク配色でスコア・レベル・NEXTピース表示。" loading="lazy" decoding="async" />
           <div class="card-overlay"></div>
         </div>
         <div class="card-body">
           <p class="card-category cat-game">🎮 &nbsp;ゲーム開発</p>
           <h3 class="card-title">テトリスゲーム</h3>
           <p class="card-desc">
-            Claude と対話しながら構築したブラウザ動作のテトリス。
-            ダーク×ネオンのサイバーパンク配色で完成させた完全プレイアブルな実装。
+            Tスピン・ハードドロップ・スコア/レベル制まで備えたブラウザ完結のテトリス。
+            Claude にルール定義と入力ハンドリングを段階的に依頼し、リファクタを重ねて手触りを調整。
           </p>
+          <p class="card-meta">2026 · HTML + Vanilla JavaScript · Claude</p>
           <div class="card-tags">
             <span class="tag">HTML</span>
             <span class="tag">CSS</span>
@@ -163,17 +182,18 @@
       <!-- Card 2: Claude Code Skill -->
       <div class="card" data-category="tool">
         <div class="card-img-wrap">
-          <img src="image/slidevideo-installation.png.jpg" alt="Claude Code スキル導入" loading="lazy" decoding="async" />
+          <img src="image/slidevideo-installation.png.jpg" alt="スライド動画自動編集スキルのインストール完了画面。依存パッケージとファイル一覧を表示。" loading="lazy" decoding="async" />
           <div class="card-overlay"></div>
         </div>
         <div class="card-body">
           <p class="card-category cat-tool">🛠 &nbsp;ツール / AI 環境</p>
-          <h3 class="card-title">Claude Code カスタムスキル導入</h3>
+          <h3 class="card-title">スライド動画 自動編集スキル</h3>
           <p class="card-desc">
-            スライド動画編集スキル「clbs-slidevideo-edit」を
-            Claude Code へインストール。Python 依存関係・ffmpeg の
-            チェックまで自動化した環境構築の記録。
+            ナレーション音声から、スライド・Bロール・テロップ配置までを自動化する CLI スキルを設計・実装。
+            Whisper で文字起こし → 台本照合 → タイミング推定 → Premiere Pro XML / SRT 出力までを一本化し、
+            Claude Code のカスタムスキルとして再利用できるようパッケージ化。
           </p>
+          <p class="card-meta">2026 · Claude Code Skill · Python + ffmpeg + Whisper</p>
           <div class="card-tags">
             <span class="tag">Claude Code</span>
             <span class="tag">Python</span>
@@ -211,13 +231,48 @@
     </div>
   </section>
 
+  </main>
+
   <!-- ==================== FOOTER ==================== -->
   <footer>
-    Built with <span>AI</span> &amp; curiosity &nbsp;·&nbsp; 2025
+    <p class="footer-copy">&copy; 2026 川合 彰</p>
+    <p class="footer-tag">Built with <span>AI</span> &amp; curiosity</p>
   </footer>
 
   <!-- ==================== SCRIPT ==================== -->
   <script>
+    // Hamburger menu toggle
+    const navToggle = document.querySelector('.nav-toggle');
+    const navMenu   = document.getElementById('nav-menu');
+
+    if (navToggle && navMenu) {
+      const closeMenu = () => {
+        navToggle.setAttribute('aria-expanded', 'false');
+        navToggle.setAttribute('aria-label', 'メニューを開く');
+        navMenu.classList.remove('is-open');
+        document.body.classList.remove('nav-open');
+      };
+      const openMenu = () => {
+        navToggle.setAttribute('aria-expanded', 'true');
+        navToggle.setAttribute('aria-label', 'メニューを閉じる');
+        navMenu.classList.add('is-open');
+        document.body.classList.add('nav-open');
+      };
+
+      navToggle.addEventListener('click', () => {
+        const expanded = navToggle.getAttribute('aria-expanded') === 'true';
+        expanded ? closeMenu() : openMenu();
+      });
+
+      // Close on link tap
+      navMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
+
+      // Close on Escape
+      document.addEventListener('keydown', e => {
+        if (e.key === 'Escape') closeMenu();
+      });
+    }
+
     // Filter buttons
     const filterBtns = document.querySelectorAll('.filter-btn');
     const cards = document.querySelectorAll('#works-grid .card');
@@ -235,22 +290,26 @@
       });
     });
 
-    // Smooth reveal on scroll
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.style.opacity = '1';
-          entry.target.style.transform = 'translateY(0)';
-        }
-      });
-    }, { threshold: 0.1 });
+    // Smooth reveal on scroll (respect prefers-reduced-motion)
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-    document.querySelectorAll('.card, .stat-item, .about-text, .about-tools').forEach(el => {
-      el.style.opacity = '0';
-      el.style.transform = 'translateY(20px)';
-      el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-      observer.observe(el);
-    });
+    if (!prefersReducedMotion) {
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateY(0)';
+          }
+        });
+      }, { threshold: 0.1 });
+
+      document.querySelectorAll('.card, .stat-item, .about-text, .about-tools').forEach(el => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(20px)';
+        el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+        observer.observe(el);
+      });
+    }
   </script>
 
 </body>
