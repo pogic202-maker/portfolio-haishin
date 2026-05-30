@@ -510,7 +510,6 @@ section {
   overflow: hidden;
   backdrop-filter: blur(8px);
   transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s;
-  cursor: pointer;
 }
 
 .card:hover {
